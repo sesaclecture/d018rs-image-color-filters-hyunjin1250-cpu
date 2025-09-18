@@ -6,7 +6,16 @@ import matplotlib.pyplot as plt
 
 class Filters:
     # TODO: Image kernels
-    Kernels = {
+
+
+    Kernels = {"Original" : np.reshape([0,0,0,0,1,0,0,0,0], (3, 3)),
+               "blur" : np.array(np.ones((3,3)), dtype=np.float32)/9 ,
+               "Gaussian blur" : np.reshape([1,2,1,2,4,2,1,2,1], (3,3))/16,
+               "sharpen" : np.reshape([0,-1,0,-1,5,-1,0,-1,0], (3,3)),
+               "sobel (x)" : np.reshape([-1,0,1,-2,0,2,-1,0,1], (3,3)),
+               "sobel (y)" : np.reshape([-1,-2,-1,0,0,0,1,2,1], (3,3)),
+               "edge Detection" : np.reshape([-1,-1,-1,-1,8,-1,-1,-1,-1], (3,3)),
+               "emboss" : np.reshape([-2,-1,0,-1,1,1,0,1,2], (3,3))
     }
 
     def __init__(self, kernels=Kernels):
